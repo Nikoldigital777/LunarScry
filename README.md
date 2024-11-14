@@ -1,17 +1,25 @@
 # LunarScry
 
-**LunarScry** is an AI-powered decentralized content moderation protocol built on the Solana blockchain. It leverages **Groq's LLaMA model** for rapid content analysis and combines it with **community governance** through stake-weighted voting to ensure fair and transparent moderation decisions.
+**LunarScry** is an AI-powered decentralized content moderation protocol built on the Solana blockchain. It leverages **Groq's LLaMA 3.2 model** for rapid content analysis of images, text, links, and potential scams, and combines this with **community governance** through stake-weighted voting to ensure fair and transparent moderation decisions.
 
 ## Purpose
 
-LunarScry allows decentralized applications (dApps) to automate the detection of harmful content (e.g., harassment, spam) using AI, while also enabling the community to vote on whether flagged content should be approved or rejected. This hybrid approach ensures that content moderation is both efficient and fair, with economic incentives for participants.
+LunarScry allows decentralized applications (dApps) to automate the detection of harmful content (e.g., harassment, spam, scams, or inappropriate images and links) using AI. The community can then vote on whether flagged content should be approved or rejected. This hybrid approach ensures that content moderation is both efficient and fair, with economic incentives for participants.
 
 ## Key Features
 
-- **AI-Powered Moderation**: Automatically detects harmful content such as spam, hate speech, and scams using Groq's LLaMA.
+- **AI-Powered Moderation**: Automatically detects harmful content such as spam, hate speech, scams, inappropriate images, and malicious links using Groq's LLaMA 3.2.
 - **Decentralized Voting**: Community members vote on flagged content using a stake-weighted system, ensuring fairness and transparency.
 - **Token Economics**: The GUARD token is used for staking, voting, and distributing rewards to participants.
 - **Developer-Friendly SDK**: Easy integration with dApps through a TypeScript SDK that allows interaction with LunarScry's smart contracts.
+
+## How It Works
+
+1. **Content Submission**: Users submit content (text, images, or links) for moderation. This content is analyzed by Groq's LLaMA 3.2 AI model for harmful elements like harassment, scams, or inappropriate imagery.
+2. **AI Analysis**: The AI assigns a confidence score based on its analysis of the content. If the score is above a certain threshold (e.g., 50%), the content is flagged for community review.
+3. **Community Voting**: If flagged by the AI, the community votes on whether to approve or reject the content. Voting is stake-weighted, meaning users with more tokens have greater influence.
+4. **Final Decision**: Once voting concludes, if quorum is reached (a minimum number of votes), the decision is finalized as either "approved" or "rejected."
+5. **Rewards Distribution**: Users who voted in line with the final decision are rewarded with tokens based on their stake and voting time.
 
 ## Getting Started
 
@@ -102,7 +110,7 @@ const lunarscry = new LunarScry({
 async function moderateContent(content: string) {
   const result = await lunarscry.analyze({
     content,
-    contentType: 'text',
+    contentType: 'text', // Can also be 'image' or 'link'
     callback_url: 'https://your-app.com/callback'
   });
 
