@@ -58,13 +58,6 @@ anchor deploy --provider.cluster devnet
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-## 3. **API Documentation (`docs/API.md`)**
-
-Provide detailed API documentation for developers integrating LunarScry into their dApps.
-
-```markdown
-# LunarScry API Documentation
-
 ## Overview
 
 LunarScry provides a set of APIs to interact with its decentralized content moderation protocol. The APIs allow you to submit content, cast votes, claim rewards, and more.
